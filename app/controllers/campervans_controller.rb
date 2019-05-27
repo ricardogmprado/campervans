@@ -1,5 +1,5 @@
 class CampervansController < ApplicationController
-  before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
+  before_action :set_campervan, only: [:show, :edit, :update, :destroy]
 
   def index
     @campervans = Campervans.all
