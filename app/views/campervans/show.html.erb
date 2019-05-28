@@ -3,6 +3,7 @@
   <div class="card">
     <img src="<%= cl_image_path @campervan.photo %>" class="card-img-top" alt="Image Van">
     <h3><%= @campervan.name %></h3>
+
     <ul>
       <li><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @campervan.location %></li>
       <li>$<%= @campervan.daily_price %>/day</li>
@@ -14,4 +15,11 @@
     <%= link_to "Delete", campervan_path(@campervan), method: :delete, class: 'btn btn-outline-danger', data: {confirm: "Are you sure?"}  %>
     <%= link_to "Back to List", campervans_path, class: 'btn btn-light'  %>
   </div>
+  <% @campervan.reviews.each do |review| %>
+  <div>
+    <p>Rating: <span class="fa fa-star checked"></span><%= review.rating %></p>
+    <p><%= review.description %></p>
+  <% end %>
+  </div>
  </div>
+
