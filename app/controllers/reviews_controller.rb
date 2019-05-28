@@ -20,14 +20,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def rating
-    @rating = Rating.new
-  end
-
-  def descrition
-    @description = Description.new
-  end
-
   private
 
   def review_params
