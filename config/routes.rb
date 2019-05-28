@@ -8,7 +8,12 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create, :new]
   end
 
-  resources :bookings, only: [:show, :index] do
-    resources :reviews, only: [:create]
+  resources :campervan do
+   resources :reviews, only: [:index]
   end
+
+  resources :bookings, only: [:show, :index] do
+  resources :reviews, only: [:create, :new]
+  end
+
 end

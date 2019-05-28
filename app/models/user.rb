@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :reviews, through: :bookings
   has_many :campervans
   validates :name, presence: true
-  validates :email, presence: true, uniqueness: true, format: { with: /.+\@.+\..+/ }
   validates :phone_number, presence: true
+  validates :email, presence: true, uniqueness: true, format: { with: /.+\@.+\..+/ }
 end
