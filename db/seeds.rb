@@ -5,6 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Review.destroy_all
+Booking.destroy_all
+Campervan.destroy_all
+User.destroy_all
+
 bed_type = ["Twin", "Double", "Queen" "King"]
 belted_seats = (1..7).to_a
 prince_range = (100..1000).to_a
@@ -29,9 +35,9 @@ end
     sleeps: belted_seats.sample,
     location: Faker::Address.street_address,
     user: User.all.sample,
-    photo: Faker::Creature::Dog.name,
     daily_price: prince_range.sample)
-    # byebug
+    # byebug_
+  campervan.remote_photo_url = 'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80'
   campervan.save
 
 end

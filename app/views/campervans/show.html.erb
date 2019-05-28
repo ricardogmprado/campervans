@@ -1,9 +1,9 @@
  <div class="container">
-  <div class="card-category">
+  <div class="card">
+    <img src="<%= cl_image_path @campervan.photo %>" class="card-img-top" alt="Image Van">
     <h3><%= @campervan.name %></h3>
     <ul>
       <li><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @campervan.location %></li>
-      <li>Photo string: <%= @campervan.photo %></li>
       <li>$<%= @campervan.daily_price %>/day</li>
       <li>sleeps: <%= @campervan.sleeps %></li>
       <li>belted seats: <%= @campervan.belted_seats %></li>
