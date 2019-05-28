@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
     end
   end
 
-  sprivate
+  private
 
   def review_params
     params.require(:review).permit(:description, :rating)
