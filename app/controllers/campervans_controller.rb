@@ -2,7 +2,7 @@ class CampervansController < ApplicationController
   before_action :set_campervan, only: [:show, :edit, :update, :destroy]
 
   def index
-    @campervans = Campervans.all
+    @campervans = Campervan.all
   end
 
   def show
