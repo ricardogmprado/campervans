@@ -1,5 +1,6 @@
 class CampervansController < ApplicationController
   before_action :set_campervan, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except:[:index, :show]
 
   def index
     @campervans = Campervan.all
@@ -15,6 +16,7 @@ class CampervansController < ApplicationController
 
   def create
     @campervan = Campervan.new(campervan_params)
+    @campervan.user = current_user
     if @campervan.save
       redirect_to campervan_path(@campervan.id)
     else

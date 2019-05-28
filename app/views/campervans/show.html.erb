@@ -1,7 +1,17 @@
-<h1>Campervans#show</h1>
-<p>Find me in app/views/campervans/show.html.erb</p>
 
-<% @reviews.each do |review| %>
-<p><%= review.rating %></p>
-<p><%= review.description %></p>
-<% end %>
+ <div class="container">
+  <div class="card-category">
+    <h3><%= @campervan.name %></h3>
+    <ul>
+      <li><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @campervan.location %></li>
+      <li>Photo string: <%= @campervan.photo %></li>
+      <li>$<%= @campervan.daily_price %>/day</li>
+      <li>sleeps: <%= @campervan.sleeps %></li>
+      <li>belted seats: <%= @campervan.belted_seats %></li>
+      <li>bed type: <%= @campervan.bed_type %></li>
+    </ul>
+    <%= link_to "Edit", edit_campervan_path(@campervan), class: 'btn btn-outline-primary' %>
+    <%= link_to "Delete", campervan_path(@campervan), method: :delete, class: 'btn btn-outline-danger', data: {confirm: "Are you sure?"}  %>
+    <%= link_to "Back to List", campervans_path, class: 'btn btn-light'  %>
+  </div>
+ </div>

@@ -1,2 +1,21 @@
-<h1>Campervans#index</h1>
-<p>Find me in app/views/campervans/index.html.erb</p>
+<div class="container">
+  <h1>All Campervans</h1>
+  <p>Unique Campervans for unique People</p>
+  <%= link_to "List your van", new_campervan_path, class: 'btn btn-outline-secondary'  %>
+  <div class="cards">
+    <% @campervans.each do |campervan| %>
+      <div class="card-category">
+        <h3><%= link_to campervan.name, campervan_path(campervan.id) %></h3>
+        <ul>
+          <li><i class="fa fa-map-marker" aria-hidden="true"></i> <%= campervan.location %></li>
+          <li>Photo string: <%= campervan.photo %></li>
+          <li>$<%= campervan.daily_price %>/day</li>
+          <li>sleeps: <%= campervan.sleeps %></li>
+          <li>belted seats: <%= campervan.belted_seats %></li>
+          <li>bed type: <%= campervan.bed_type %></li>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
+

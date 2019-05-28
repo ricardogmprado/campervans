@@ -1,2 +1,13 @@
-<h1>Campervans#edit</h1>
-<p>Find me in app/views/campervans/edit.html.erb</p>
+<h1><%= @campervan.name %></h1>
+<p>Edit your Van</p>
+<%= simple_form_for @campervan do |f| %>
+    <%= f.input :name %>
+    <%= f.input :location %>
+    <%= f.input :belted_seats %>
+    <%= f.input :bed_type %>
+    <%= f.input :sleeps %>
+    <%= f.input :daily_price %>
+    <%= f.input :photo %>
+    <%= f.button :submit, class: 'btn btn-success' %>
+    <%= link_to "Back to List", campervans_path, class: 'btn btn-light' %>
+  <% end %>
