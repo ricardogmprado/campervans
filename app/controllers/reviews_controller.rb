@@ -10,7 +10,8 @@ class ReviewsController < ApplicationController
     # @review.campervan = Campervan.find(params[:campervan_id])
     if @review.save
       redirect_to campervan_path(@review.campervan)
-    else render :new
+    else
+      render :new
     end
   end
 
