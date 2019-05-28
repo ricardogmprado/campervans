@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!, only: [:create]
   def index
     @bookings = Booking.all
   end
@@ -10,7 +11,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.campervan = Campervan.find(params[:campervan_id])
-    @booking.user = User.find(params[:user_id])
+    @booking.user = User.find(current_user)
     @booking.save
 
     redirects_to booking_path(@booking)
@@ -19,4 +20,7 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
   end
+
+  # def calculate_total_price
+  # end
 end
