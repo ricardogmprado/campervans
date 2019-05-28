@@ -5,39 +5,24 @@ class ReviewsController < ApplicationController
     @review = Review.new
   end
 
+  def index
+    @reviews = Review.all
+  end
+
   def create
     @review = Review.new(review_params)
-    @review.campervan = Campervan.find(params[:campervan_id])
-    @review.save
-    redirect_to campervan_path(@review.campervan)
+    @booking = Booking.find(params[:booking_id])
+    @review.booking = @booking
+    # @review.campervan = Campervan.find(params[:campervan_id])
+    if @review.save
+      redirect_to campervan_path(@review.booking.campervan)
+    else render :new
+    end
   end
+
+  private
 
   def review_params
     params.require(:review).permit(:description, :rating)
   end
 end
-
-  #   @review = @reviews.build(params[:review])
-
-  #   if @review.save
-  #     ;flash[:notice] = 'Review was successfully created.'
-  #     redirect_to @review
-  #   else
-  #     flash[:notice] = "Error creating review: #{@review.errors}"
-  #     redirect_to @review
-  #   end
-  # end
-
-  # def new
-  #   @review = Review.new
-  # end
-
-  #  private
-
-  #   def set_review
-  #     @review = Review.find(params[:id])
-  #   end
-
-  #   # def review_params
-  #   #   params.require(:review).permit(:username, :body)
-  #   # end

@@ -7,6 +7,7 @@ class CampervansController < ApplicationController
   end
 
   def show
+    @reviews = @campervan.reviews
   end
 
   def new
