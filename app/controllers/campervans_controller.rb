@@ -7,6 +7,7 @@ class CampervansController < ApplicationController
 
   def show
     @booking = Booking.new
+    @booking.campervan = @campervan
   end
 
   def new

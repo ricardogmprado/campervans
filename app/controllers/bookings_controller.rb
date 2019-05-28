@@ -4,6 +4,12 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
+  def new
+    @campervan = Campervan.find(params[:campervan_id])
+    @bookings = Booking.new
+  end
+
+
   def show
     @booking = Booking.find(params[:id])
     @review = Review.new
@@ -11,11 +17,15 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.campervan = Campervan.find(params[:campervan_id])
+    @campervan = Campervan.find(params[:campervan_id])
+    @booking.campervan = @campervan
     @booking.user = current_user
-    @booking.save
-
-    redirects_to booking_path(@booking)
+    # @booking.total_price = calculate_total_price
+    if @booking.save
+      redirect_to booking_path(@booking)
+     else
+      render "campervans/show"
+    end
   end
 
   def booking_params
@@ -23,5 +33,7 @@ class BookingsController < ApplicationController
   end
 
   # def calculate_total_price
+  #   duration = @booking.end_date - @booking.start_date
+  #   duration * @booking.campervan.daily_price
   # end
 end

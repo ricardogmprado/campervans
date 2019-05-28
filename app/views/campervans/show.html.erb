@@ -1,4 +1,8 @@
-<h1>Campervans#show</h1>
-<p>Find me in app/views/campervans/show.html.erb</p>
-<%= render 'new_booking_form' %>
+<h1>Book your campervan</h1>
+<%= simple_form_for [@campervan, @booking] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.submit "Book now", class: "btn btn-primary" %>
+<% end %>
+
 
