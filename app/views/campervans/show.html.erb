@@ -1,3 +1,10 @@
+<h1>Book your campervan</h1>
+<%= simple_form_for [@campervan, @booking] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.submit "Book now", class: "btn btn-primary" %>
+<% end %>
+
 
  <div class="container">
   <div class="card-category">
