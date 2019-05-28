@@ -5,11 +5,17 @@ class ReviewsController < ApplicationController
     @review = Review.new
   end
 
+  def index
+    @reviews = Review.all
+  end
+
   def create
     @review = Review.new(review_params)
+    @booking = Booking.find(params[:booking_id])
+    @review.booking = @booking
     # @review.campervan = Campervan.find(params[:campervan_id])
     if @review.save
-      redirect_to campervan_path(@review.campervan)
+      redirect_to campervan_path(@review.booking.campervan)
     else render :new
     end
   end
