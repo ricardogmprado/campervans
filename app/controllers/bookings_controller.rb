@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: [:show]
   before_action :authenticate_user!, only: [:create]
   def index
     @bookings = Booking.all
@@ -10,7 +11,7 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.find(params[:id])
+    authorize @booking
     @review = Review.new
   end
 
@@ -19,12 +20,19 @@ class BookingsController < ApplicationController
     @campervan = Campervan.find(params[:campervan_id])
     @booking.campervan = @campervan
     @booking.user = current_user
+    authorize @booking
     # @booking.total_price = calculate_total_price
     if @booking.save
       redirect_to booking_path(@booking)
     else
       render "campervans/show"
     end
+  end
+
+  private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 
   def booking_params
