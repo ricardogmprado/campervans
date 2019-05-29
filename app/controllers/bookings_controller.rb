@@ -9,7 +9,6 @@ class BookingsController < ApplicationController
     @bookings = Booking.new
   end
 
-
   def show
     @booking = Booking.find(params[:id])
     @review = Review.new
@@ -23,7 +22,7 @@ class BookingsController < ApplicationController
     # @booking.total_price = calculate_total_price
     if @booking.save
       redirect_to booking_path(@booking)
-     else
+    else
       render "campervans/show"
     end
   end
