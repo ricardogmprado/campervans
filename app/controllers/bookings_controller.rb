@@ -1,14 +1,13 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
   def index
-    @bookings = Booking.all
+    @bookings = Booking.where(user: current_user)
   end
 
   def new
     @campervan = Campervan.find(params[:campervan_id])
     @bookings = Booking.new
   end
-
 
   def show
     @booking = Booking.find(params[:id])
@@ -23,7 +22,7 @@ class BookingsController < ApplicationController
     # @booking.total_price = calculate_total_price
     if @booking.save
       redirect_to booking_path(@booking)
-     else
+    else
       render "campervans/show"
     end
   end
