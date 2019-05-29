@@ -10,8 +10,12 @@
       <li>belted seats: <%= @campervan.belted_seats %></li>
       <li>bed type: <%= @campervan.bed_type %></li>
     </ul>
-    <%= link_to "Edit", edit_campervan_path(@campervan), class: 'btn btn-outline-primary' %>
-    <%= link_to "Delete", campervan_path(@campervan), method: :delete, class: 'btn btn-outline-danger', data: {confirm: "Are you sure?"}  %>
+    <% if policy(@campervan).edit? %>
+      <%= link_to "Edit", edit_campervan_path(@campervan), class: 'btn btn-outline-primary' %>
+    <% end %>
+    <% if policy(@campervan).destroy? %>
+      <%= link_to "Delete", campervan_path(@campervan), method: :delete, class: 'btn btn-outline-danger', data: {confirm: "Are you sure?"}  %>
+    <% end %>
     <%= link_to "Back to List", campervans_path, class: 'btn btn-light'  %>
   </div>
  </div>

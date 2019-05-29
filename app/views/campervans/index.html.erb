@@ -2,6 +2,11 @@
   <h1>All Campervans</h1>
   <p>Unique Campervans for unique People</p>
   <%= link_to "List your van", new_campervan_path, class: 'btn btn-outline-secondary'  %>
+  <% if user_signed_in? %>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'btn btn-outline-secondary' %>
+    <% else %>
+    <%= link_to "Log in", new_user_session_path, class: 'btn btn-outline-secondary' %>
+  <% end %>
   <div class="cards">
     <% @campervans.each do |campervan| %>
       <div class="card" style="width: 18rem;">
