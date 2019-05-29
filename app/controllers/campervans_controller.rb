@@ -4,6 +4,15 @@ class CampervansController < ApplicationController
 
   def index
     @campervans = policy_scope(Campervan)
+
+    @campervans_map = @campervans.where.not(latitude: nil, longitude: nil)
+    @markers = @campervans_map.map do |campervan|
+      {
+        lat: campervan.latitude,
+        lng: campervan.longitude
+        # infoWindow: render_to_string(partial: "infowindow", locals: { campervan: campervan })
+      }
+    end
   end
 
   def show
@@ -13,6 +22,11 @@ class CampervansController < ApplicationController
     @booking.campervan = @campervan
 
     @reviews = @campervan.reviews
+
+    @markers = [{
+      lat: @campervan.latitude,
+      lng: @campervan.longitude
+    }]
   end
 
   def new

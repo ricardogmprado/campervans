@@ -11,10 +11,12 @@
   <p><%= "Sleeps: #{@booking.campervan.name} people" %></p>
   <p><%= "Bed type: #{@booking.campervan.bed_type}" %></p>
 
+  <% if Date.today > @booking.end_date %>
 
-  <%= simple_form_for [@booking, @review] do |f| %>
-    <%= f.input :rating, collection: (1..5) %>
-    <%= f.input :description %>
-    <%= f.submit "add a review", class: "btn btn-primary" %>
+    <%= simple_form_for [@booking, @review] do |f| %>
+      <%= f.input :rating, collection: (1..5) %>
+      <%= f.input :description %>
+      <%= f.submit "add a review", class: "btn btn-primary" %>
+    <% end %>
   <% end %>
 </div>
