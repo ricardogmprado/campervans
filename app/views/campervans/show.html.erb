@@ -12,7 +12,7 @@
   <img src="<%= cl_image_path @campervan.photo %>" class="card-img-top" alt="Image Van">
     <h3><%= @campervan.name %></h3>
 
-    <ul>
+    <ul style="list-style: none">
       <li><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @campervan.location %></li>
       <li>$<%= @campervan.daily_price %>/day</li>
       <li>sleeps: <%= @campervan.sleeps %></li>
