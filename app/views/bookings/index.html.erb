@@ -1,10 +1,21 @@
 <h1>My Bookings</h1>
 
-<p><% @bookings.each do |booking| %></p>
-<img src="<%= cl_image_path booking.campervan.photo %>" class="card-img-top" alt="Image Van">
-<p><%= "Start date: #{booking.start_date}" %></p>
-<p><%= "End date: #{booking.end_date}" %></p>
-<p><%= "Total Price: U$ #{booking.total_price},00" %></p>
-<%= link_to "Show booking", booking_path(booking), class: 'btn btn-outline-secondary'  %>
+<div class="cards w-75 mx-auto">
+  <% @bookings.each do |booking| %>
+  <div class="cards d-flex flex-column w-100" style="width: 18rem;">
+    <img src="<%= cl_image_path booking.campervan.photo %>" class="card-img-top" alt="Image Van">
+    <div class="card-body">
+      <h5 class="card-title"><%= booking.campervan.name %></h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><%= "Start date: #{booking.start_date}" %></li>
+      <li class="list-group-item"><%= "End date: #{booking.end_date}" %></li>
+      <li class="list-group-item"><%= "Total Price: U$ #{booking.total_price},00" %></li>
+    </ul>
+    <div class="card-body">
+      <a href="#" class="card-link"><%= link_to "Show booking", booking_path(booking), class: 'btn btn-outline-secondary'  %></a>
+    </div>
+  </div>
 
-<% end %>
+  <% end %>
+</div>
