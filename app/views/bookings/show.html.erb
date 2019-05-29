@@ -10,6 +10,7 @@
   <p><%= "Campervan name: #{@booking.campervan.name}" %></p>
   <p><%= "Sleeps: #{@booking.campervan.name} people" %></p>
   <p><%= "Bed type: #{@booking.campervan.bed_type}" %></p>
+  <% end %>
 
   <% if Date.today > @booking.end_date %>
 
@@ -17,6 +18,6 @@
       <%= f.input :rating, collection: (1..5) %>
       <%= f.input :description %>
       <%= f.submit "add a review", class: "btn btn-primary" %>
-    <% end %>
   <% end %>
+  <%= link_to "Return to main page", campervans_path, class: 'btn btn-outline-secondary'  %>
 </div>
