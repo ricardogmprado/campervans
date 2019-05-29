@@ -1,9 +1,18 @@
 class CampervansController < ApplicationController
   before_action :set_campervan, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except:[:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @campervans = Campervan.all
+
+    @campervans_map = Campervan.where.not(latitude: nil, longitude: nil)
+    @markers = @campervans_map.map do |campervan|
+      {
+        lat: campervan.latitude,
+        lng: campervan.longitude
+        # infoWindow: render_to_string(partial: "infowindow", locals: { campervan: campervan })
+      }
+    end
   end
 
   def show
@@ -11,6 +20,11 @@ class CampervansController < ApplicationController
     @booking.campervan = @campervan
 
     @reviews = @campervan.reviews
+
+    @markers = [{
+      lat: @campervan.latitude,
+      lng: @campervan.longitude
+    }]
   end
 
   def new
