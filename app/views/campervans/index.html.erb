@@ -1,3 +1,44 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <a class="navbar-brand" href="#">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCmXjoP6K3ha8q7f5jTpvTi_oBX806t6ENh_5r8H_ouVZQdRO0" />
+</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Messages</a>
+      </li>
+      <li class="nav-item dropdown">
+        <%= link_to "List your van", new_campervan_path, class: 'btn btn-outline-secondary'  %>
+        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1510343513665-4527e381af08?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2894&q=80);">
+  <div class="container">
+    <h1>VANIN</h1>
+    <p>brings unique <strong>campervans</strong> to unique people.</p>
+    <a class="btn btn-flat" href="#">Book now</a>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+
 
 <div
   id="map"
@@ -7,10 +48,10 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_KEY'] %>"
 ></div>
 
+
 <div class="container">
-  <h1>All Campervans</h1>
-  <p>Unique Campervans for unique People</p>
-  <%= link_to "List your van", new_campervan_path, class: 'btn btn-outline-secondary'  %>
+
+
   <div class="cards">
     <% @campervans.each do |campervan| %>
       <div class="card" style="width: 18rem;">
@@ -28,3 +69,14 @@
   </div>
 </div>
 
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+  </div>
+  <div class="footer-copyright">
+  </div>
+</div>
