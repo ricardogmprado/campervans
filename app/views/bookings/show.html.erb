@@ -1,18 +1,20 @@
-<h1>Booking</h1>
+<div class="container">
+  <h1>Your Booking</h1>
 
-<p><%= "Campervan photo: #{@booking.campervan.photo}" %></p>
-<p><%= "$ #{@booking.total_price} is the total price" %></p>
-<p><%= "start date: #{@booking.start_date}" %></p>
-<p><%= "end date: #{@booking.end_date}" %></p>
-<p><%= "Campervan owner: #{@booking.campervan.user.name}" %></p>
-<p><%= "Location: #{@booking.campervan.location}" %></p>
-<p><%= "Campervan name: #{@booking.campervan.name}" %></p>
-<p><%= "Sleeps: #{@booking.campervan.name} people" %></p>
-<p><%= "Bed type: #{@booking.campervan.bed_type}" %></p>
+  <img src="<%= cl_image_path @booking.campervan.photo %>" class="card-img-top" alt="Image Van">
+  <p><%= "total price: $#{@booking.total_price}" %></p>
+  <p><%= "start date: #{@booking.start_date}" %></p>
+  <p><%= "end date: #{@booking.end_date}" %></p>
+  <p><%= "Campervan owner: #{@booking.campervan.user.name}" %></p>
+  <p><%= "Location: #{@booking.campervan.location}" %></p>
+  <p><%= "Campervan name: #{@booking.campervan.name}" %></p>
+  <p><%= "Sleeps: #{@booking.campervan.name} people" %></p>
+  <p><%= "Bed type: #{@booking.campervan.bed_type}" %></p>
 
 
-<%= simple_form_for [@booking, @review] do |f| %>
-  <%= f.input :rating, collection: (1..5) %>
-  <%= f.input :description %>
-  <%= f.submit "add a review", class: "btn btn-primary" %>
-<% end %>
+  <%= simple_form_for [@booking, @review] do |f| %>
+    <%= f.input :rating, collection: (1..5) %>
+    <%= f.input :description %>
+    <%= f.submit "add a review", class: "btn btn-primary" %>
+  <% end %>
+</div>

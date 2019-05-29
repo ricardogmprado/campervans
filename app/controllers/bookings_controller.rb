@@ -2,12 +2,13 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show]
   before_action :authenticate_user!, only: [:create]
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking)
+    # @bookings = Booking.all
   end
 
   def new
     @campervan = Campervan.find(params[:campervan_id])
-    @bookings = Booking.new
+    @booking = Booking.new
   end
 
   def show
