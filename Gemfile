@@ -17,6 +17,8 @@ gem 'webpacker'
 gem 'geocoder'
 gem 'devise'
 gem 'faker'
+gem 'pundit'
+
 
 # image uplpoad
 gem 'cloudinary', '~> 1.9.1'
