@@ -1,14 +1,17 @@
 class CampervansController < ApplicationController
   before_action :set_campervan, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except:[:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @campervans = policy_scope(Campervan)
-    # @campervans = Campervan.all
   end
 
   def show
     authorize @campervan
+
+    @booking = Booking.new
+    @booking.campervan = @campervan
+
     @reviews = @campervan.reviews
   end
 
