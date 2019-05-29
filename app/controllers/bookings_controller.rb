@@ -36,4 +36,5 @@ class BookingsController < ApplicationController
   #   duration = @booking.end_date - @booking.start_date
   #   duration * @booking.campervan.daily_price
   # end
+  # insert
 end
