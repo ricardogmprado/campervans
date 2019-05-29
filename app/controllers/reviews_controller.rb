@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   # before_action :set_review, only: [:new, :create]
   def new
     @campervan = Campervan.find(params[:campervan_id])
-    @review = Review.new
+      @review = Review.new
   end
 
   def index
