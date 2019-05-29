@@ -9,11 +9,20 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+    <% if user_signed_in? %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'btn btn-outline-secondary' %>
+    <% else %>
+      <%= link_to "Log in", new_user_session_path, class: 'btn btn-outline-secondary' %>
+    <% end %>
+
       <li class="nav-item active">
         <a class="nav-link" href="#">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Messages</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/bookings">My Bookings</a>
       </li>
       <li class="nav-item dropdown">
         <%= link_to "List your van", new_campervan_path, class: 'btn btn-outline-secondary'  %>
@@ -28,36 +37,34 @@
 </div>
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1510343513665-4527e381af08?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2894&q=80);">
-  <div class="container">
+  <div class="container text-center">
     <h1>VANIN</h1>
     <p>brings unique <strong>campervans</strong> to unique people.</p>
-    <a class="btn btn-flat" href="#">Book now</a>
+  <!--   <a class="btn btn-flat" href="">Book now</a> -->
+  <button type="button" class="btn btn-light" href="/campervans">Book now</button>
   </div>
 </div>
 
 <br>
 <br>
-<br>
-
 
 <div
   id="map"
   style="width: 100%;
   height: 600px;"
   data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_KEY'] %>"
+  data-mapbox-api-key="<%= ENV["MAPBOX_KEY"] %>"
 ></div>
-
-
+<br>
+<br>
 <div class="container">
-
 
   <div class="cards">
     <% @campervans.each do |campervan| %>
       <div class="card" style="width: 18rem;">
         <img src="<%= cl_image_path campervan.photo %>" class="card-img-top" alt="Image Van">
         <h3><%= link_to campervan.name, campervan_path(campervan.id) %></h3>
-        <ul>
+        <ul style="list-style: none">
           <li><i class="fa fa-map-marker" aria-hidden="true"></i> <%= campervan.location %></li>
           <li>$<%= campervan.daily_price %>/day</li>
           <li>sleeps: <%= campervan.sleeps %></li>

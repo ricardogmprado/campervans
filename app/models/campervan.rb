@@ -8,7 +8,7 @@ class Campervan < ApplicationRecord
   validates :belted_seats, presence: true
   validates :sleeps, presence: true
   validates :location, presence: true
-  # validates :photo, presence: true
+  validates :photo, presence: true
   validates :daily_price, presence: true
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
