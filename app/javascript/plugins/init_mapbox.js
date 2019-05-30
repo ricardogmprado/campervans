@@ -27,16 +27,13 @@ const fitMapToMarkers = (map, markers) => {
 };
 
 const initMapbox = () => {
-<<<<<<< HEAD
-  if (mapElement != null) {
-=======
   if (mapElement) {
->>>>>>> 7a55d230bc0dac708c22ec83b67809b9960dc663
     const map = buildMap();
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
-  }
-};
+  };
+}
+
 
 export { initMapbox };
