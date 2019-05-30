@@ -1,10 +1,10 @@
+require_relative '../validators/availability_validator.rb'
+
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :campervan
   has_many :reviews
-  validates :start_date, presence: true
-  validates :end_date, presence: true
-  #validates :total_price, presence: true
+  validates :start_date, :end_date, presence: true, availability: true
   validate :date_booking_validation
 
   before_save :calculate_total_price
@@ -16,6 +16,8 @@ class Booking < ApplicationRecord
   end
 
   def date_booking_validation
+    return if end_date.blank? || start_date.blank?
+
     if self.start_date >= self.end_date
       errors.add(:start_date, "can't be equal or greater than the end date")
     end
