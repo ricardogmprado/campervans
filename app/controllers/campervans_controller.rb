@@ -3,14 +3,22 @@ class CampervansController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
+    # byebug
     @campervans = policy_scope(Campervan)
-
+    if params[:query].present?
+      # @campervans = @campervans.where("location ILIKE ?", "%#{params[:query].strip}%")
+      @campervans = @campervans.near(params[:query], 50)
+        if @campervans.empty?
+          @campervans = policy_scope(Campervan)
+          flash[:alert] = "There are no campervans in your location"
+        end
+      @campervans_map = @campervans.where.not(latitude: nil, longitude: nil)
+    end
     @campervans_map = @campervans.where.not(latitude: nil, longitude: nil)
     @markers = @campervans_map.map do |campervan|
       {
         lat: campervan.latitude,
         lng: campervan.longitude
-        # infoWindow: render_to_string(partial: "infowindow", locals: { campervan: campervan })
       }
     end
   end

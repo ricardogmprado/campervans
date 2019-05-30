@@ -10,7 +10,7 @@
       <% end %>
     </div>
   <% end %>
-  <div class="card">
+  <div class="card show-card">
   <img src="<%= cl_image_path @campervan.photo %>" class="card-img-top" alt="Image Van">
     <h3><%= @campervan.name %></h3>
 
@@ -34,9 +34,10 @@
     <p>Rating: <span class="fa fa-star checked"></span><%= review.rating %></p>
     <p><%= review.description %></p>
   <% end %>
-    <div id="map" style="width: 100%; height: 600px;
-    "data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_KEY'] %>"></div>
   </div>
  </div>
+
+  <div id="map" class="show-map" style="width: 100%; height: 600px;
+    "data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_KEY'] %>"></div>
 

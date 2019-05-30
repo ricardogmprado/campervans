@@ -3,7 +3,6 @@ class BookingsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
   def index
     @bookings = policy_scope(Booking)
-    # @bookings = Booking.all
   end
 
   def new
