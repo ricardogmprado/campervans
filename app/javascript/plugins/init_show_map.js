@@ -1,11 +1,11 @@
 import mapboxgl from 'mapbox-gl';
 
-const mapElement = document.getElementById('map');
+const mapElement = document.getElementById('show-map');
 
 const buildMap = () => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
-    container: 'map',
+    container: 'show-map',
     style: 'mapbox://styles/mapbox/streets-v10'
   });
 };
@@ -26,8 +26,8 @@ const fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
 };
 
-const initMapbox = () => {
-  if (mapElement != null) {
+const initShowMapbox = () => {
+  if (mapElement) {
     const map = buildMap();
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
@@ -35,4 +35,4 @@ const initMapbox = () => {
   }
 };
 
-export { initMapbox };
+export { initShowMapbox };
