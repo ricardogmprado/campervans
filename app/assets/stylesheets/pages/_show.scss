@@ -1,0 +1,51 @@
+
+
+.banner-show {
+  height: 50vh;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  .banner-content {
+    color: white;
+    h1 {
+      font-size: 500%;
+    }
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  .details {
+    background-color: white;
+    border-radius: 4px;
+    padding: 10px;
+    padding: 10px 10px 10px 0;
+    margin: 10px 10px 10px 0;
+
+    ul {
+      list-style: none;
+      display: inline-block;
+      padding: 0;
+    }
+
+    .description {
+    }
+    .reviews {
+
+
+    }
+  }
+  .form-booking{
+    background-color: rgba(0,0,0,0.05);
+    padding: 10px;
+    margin: 10px 0 10px 10px;
+    border-radius: 4px;
+  }
+}
