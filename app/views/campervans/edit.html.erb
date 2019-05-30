@@ -1,3 +1,4 @@
+<%= render 'partials/navbar' %>
 <h1><%= @campervan.name %></h1>
 <p>Edit your Van</p>
 <%= simple_form_for @campervan do |f| %>
@@ -11,3 +12,4 @@
     <%= f.button :submit, class: 'btn btn-success' %>
     <%= link_to "Back to List", campervans_path, class: 'btn btn-light' %>
   <% end %>
+<%= render 'partials/footer' %>

@@ -1,4 +1,4 @@
-
+<%= render 'partials/navbar' %>
  <div class="container">
   <% unless current_user == @campervan.user %>
     <h1>Book <%= @campervan.name %></h1>
@@ -37,4 +37,4 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_KEY'] %>"></div>
   </div>
  </div>
-
+<%= render 'partials/footer' %>

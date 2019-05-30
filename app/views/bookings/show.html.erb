@@ -1,22 +1,31 @@
+<%= render 'partials/navbar' %>
+
 <div class="container">
-  <h1>Your Booking</h1>
+  <h1 class="booktitle">Your Booking</h1>
   <img src="<%= cl_image_path @booking.campervan.photo %>" class="card-img-top" alt="Image Van">
-  <p>total price: <%= @booking.total_price %></p>
-  <p>start date: <%= @booking.start_date %></p>
-  <p> end date: <%= @booking.end_date %></p>
-  <p>Campervan owner: <%= @booking.campervan.user.name %></p>
-  <p>Location: <%= @booking.campervan.location %></p>
-  <p>Campervan name: <%= @booking.campervan.name %></p>
-  <p>Sleeps: <%= @booking.campervan.name %> people </p>
-  <p>Bed type: <%= @booking.campervan.bed_type %></p>
+  <br>
+  <br>
+
+  <p><strong>Total price :</strong> <%= @booking.total_price %></p>
+  <p><strong>Start date :</strong> <%= @booking.start_date %></p>
+  <p><strong>End date :</strong> <%= @booking.end_date %></p>
+  <p><strong> Campervan owner : </strong><%= @booking.campervan.user.name %></p>
+  <p><strong> Location :</strong> <%= @booking.campervan.location %></p>
+  <p><strong> Campervan name : </strong><%= @booking.campervan.name %></p>
+  <p><strong> Sleeps :</strong> <%= @booking.campervan.name %> people </p>
+  <p><strong> Bed type :</strong> <%= @booking.campervan.bed_type %></p>
 
   <% if Date.today > @booking.end_date %>
     <%= simple_form_for [@booking, @review] do |f| %>
       <%= f.input :rating, collection: (1..5) %>
       <%= f.input :description %>
-      <%= f.submit "add a review", class: "btn btn-primary" %>
+      <%= f.submit "Add a Review", class: "btn btn-primary d-flex justify-content-center" %>
     <% end %>
   <% end %>
-  <%= link_to "Return to main page", campervans_path, class: 'btn btn-outline-secondary'  %>
-  <%= link_to "Go to your bookings", bookings_path, class: 'btn btn-outline-secondary'  %>
+<br>
+<div class="containerb"><%= link_to "Return to main page", campervans_path, class: 'btn btn-outline-secondary d-flex justify-content-center'  %>
+  <br>
+<%= link_to "Go to your bookings", bookings_path, class: 'btn btn-outline-secondary d-flex justify-content-center'  %>
 </div>
+
+<%= render 'partials/footer' %>

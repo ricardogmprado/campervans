@@ -1,5 +1,8 @@
-<h1>My Bookings</h1>
-
+<%= render 'partials/navbar' %>
+<br>
+<div class="container">
+<h1 class="booktitle">My Bookings</h1>
+</div>
 <div class="cards w-75 mx-auto">
   <% @bookings.each do |booking| %>
   <div class="cards d-flex flex-column w-100" style="width: 18rem;">
@@ -13,10 +16,12 @@
       <li class="list-group-item"><%= "Total Price: U$ #{booking.total_price},00" %></li>
     </ul>
     <div class="card-body">
-      <a href="#" class="card-link"><%= link_to "Show booking", booking_path(booking), class: 'btn btn-outline-secondary'  %></a>
+      <a href="#" class="card-link"><%= link_to "Show booking", booking_path(booking), class: 'btn btn-outline-secondary d-flex justify-content-center'  %></a>
     </div>
   </div>
 
   <% end %>
 </div>
-   <%= link_to "Return to main page", campervans_path, class: 'btn btn-outline-secondary'  %>
+  <div class="containerb d-flex justify-content-center">
+   <%= link_to "Return to main page", campervans_path, class: 'btn btn-outline-secondary d-flex justify-content-center button'  %></div>
+<%= render 'partials/footer' %>
