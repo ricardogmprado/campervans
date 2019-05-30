@@ -20,7 +20,7 @@ class CampervansController < ApplicationController
         lat: campervan.latitude,
         lng: campervan.longitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { campervan: campervan }),
-        image_url: helpers.asset_url('campervan_icon')
+        image_url: helpers.asset_url('campervan_icon.png')
       }
     end
   end
