@@ -1,3 +1,5 @@
+
+<%= render 'partials/navbar' %>
     <%= link_to "Back to List", campervans_path, class: 'btn btn-light'  %>
   <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(<%= cl_image_path @campervan.photo %>);">
     <div class="banner-content">
@@ -55,9 +57,15 @@
       <% end %>
     </div>
   </div>
+
+
+
   <h3>Location</h3>
 <div id="map" style="width: 100%; height: 600px;
   "data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_KEY'] %>">
 </div>
 
+
+<%= render 'partials/footer' %>
+ </div>

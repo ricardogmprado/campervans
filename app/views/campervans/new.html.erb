@@ -1,5 +1,6 @@
+<%= render 'partials/navbar' %>
 <div class="container">
-  <h1>List your Van</h1>
+  <h1 class="booktitle">List your Van</h1>
   <%= simple_form_for @campervan do |f| %>
     <%= f.input :name %>
     <%= f.input :location %>
@@ -14,3 +15,4 @@
   <% end %>
 </div>
 
+<%= render 'partials/footer' %>

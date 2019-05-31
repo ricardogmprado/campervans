@@ -2,12 +2,28 @@
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
   // grid-gap: 13px;
+
+ 
+  font-size: 15px;
+  font-family: "Raleway";
+  color: #363434;
+
   width: 70%;
+
 }
 
 .main-container {
   display: flex;
 }
+
+.container {
+  padding-top: 40px;
+  padding-right: 90px;
+  padding-left: 90px;
+  padding-bottom: 50px;
+}
+
+
 
 .card {
   // background-size: cover;
@@ -24,6 +40,24 @@
   // font-weight: bolder;
   // text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
+
+
+.card h3 {
+  text-align: center;
+  font-size: 30px;
+}
+
+.card a {
+  // background-color: black;
+  color: black;
+  text-align: center;
+  font-size: 30px;
+}
+.card :hover a {
+  color: gray;
+  text-decoration: none;
+}
+
 
 .show-card{
     max-height: none
@@ -56,3 +90,4 @@
   font-size: 15px;
  }
 }
+
