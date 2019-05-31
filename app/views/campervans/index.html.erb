@@ -1,5 +1,22 @@
 <%= render 'partials/navbar' %>
+<<<<<<< HEAD
 <%= render 'partials/banner' %>
+=======
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1510343513665-4527e381af08?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2894&q=80);">
+  <div class="container text-center">
+    <h1>VANIN</h1>
+    <p>brings unique <strong>campervans</strong> to unique people.</p>
+  <!--   <a class="btn btn-flat" href="">Book now</a> -->
+  <%= form_tag campervans_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control", id: "location",
+    placeholder: "Where do you want to find a campervan?"
+  %>
+  <% end %>
+  </div>
+</div>
+>>>>>>> 3e9cf9690a7dd36b1279c880745116259742847c
 <div class="main-container">
   <div class="cards">
     <% @campervans.each do |campervan| %>
@@ -22,4 +39,9 @@
     data-mapbox-api-key="<%= ENV["MAPBOX_KEY"] %>">
   </div>
 </div>
+<<<<<<< HEAD
+=======
+<div>
+>>>>>>> 3e9cf9690a7dd36b1279c880745116259742847c
 <%= render 'partials/footer' %>
+</div>
