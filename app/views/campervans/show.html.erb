@@ -1,6 +1,4 @@
-
 <%= render 'partials/navbar' %>
-    <%= link_to "Back to List", campervans_path, class: 'btn btn-light'  %>
   <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(<%= cl_image_path @campervan.photo %>);">
     <div class="banner-content">
       <h1><%= @campervan.name %></h1>
@@ -35,7 +33,7 @@
                 <span class="fa fa-star checked">
               <% end %>
               <% (5 - review.rating.to_i).times do %>
-                <span class="far fa-star"><
+                <span class="far fa-star">
               <% end %>
               </strong><br><%= review.description %></p>
           </div>
