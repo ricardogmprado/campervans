@@ -35,8 +35,12 @@ class CampervansController < ApplicationController
 
     @markers = [{
       lat: @campervan.latitude,
-      lng: @campervan.longitude
+      lng: @campervan.longitude,
+      # infoWindow: render_to_string(partial: "infowindow", locals: { campervan: campervan }),
+      image_url: helpers.asset_url('campervan_icon.png')
     }]
+
+    # raise
   end
 
   def new
