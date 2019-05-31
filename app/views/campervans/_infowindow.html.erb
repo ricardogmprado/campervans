@@ -4,9 +4,11 @@
   <% end %>
     <div class = "card-marker-content">
       <div class = "card-marker-basic">
+        <div class ="card-marker-title">
       <%= link_to campervan_path(campervan) do %>
         <h5> <%= campervan.name  %></h5>
         <% end %>
+      </div>
         <h5> Sleeps: <%= campervan.sleeps  %></h5>
         </div>
         <div class = "card-marker-price">
