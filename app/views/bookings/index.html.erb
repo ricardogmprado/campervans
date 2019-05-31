@@ -1,7 +1,6 @@
 <%= render 'partials/navbar' %>
-<br>
-<div class="container">
 <h1 class="booktitle">My Bookings</h1>
+<div class="container">
 </div>
 <div class="cards w-75 mx-auto">
   <% @bookings.each do |booking| %>
@@ -22,6 +21,6 @@
 
   <% end %>
 </div>
-  <div class="containerb d-flex justify-content-center">
-   <%= link_to "Return to main page", campervans_path, class: 'btn btn-outline-secondary d-flex justify-content-center button'  %></div>
+  <div class="buttons-container">
+   <%= link_to "Return to main page", campervans_path, class: 'btn btn-outline-secondary'  %></div>
 <%= render 'partials/footer' %>
