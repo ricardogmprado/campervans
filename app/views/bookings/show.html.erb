@@ -1,19 +1,20 @@
 <%= render 'partials/navbar' %>
 
 <div class="container">
-  <h1>Your Booking</h1>
+  <div class = "booking-title">
+    <h1> Your Booking </h1>
+  </div>
   <img src="<%= cl_image_path @booking.campervan.photo %>" class="card-img-top" alt="Image Van">
-  <br>
-  <br>
-
-  <p><strong>Total price :</strong> <%= @booking.total_price %></p>
-  <p><strong>Start date :</strong> <%= @booking.start_date %></p>
-  <p><strong>End date :</strong> <%= @booking.end_date %></p>
-  <p><strong> Campervan owner : </strong><%= @booking.campervan.user.name %></p>
-  <p><strong> Location :</strong> <%= @booking.campervan.location %></p>
-  <p><strong> Campervan name : </strong><%= @booking.campervan.name %></p>
-  <p><strong> Sleeps :</strong> <%= @booking.campervan.name %> people </p>
-  <p><strong> Bed type :</strong> <%= @booking.campervan.bed_type %></p>
+  <div class="booking-info">
+  <p><i class="far fa-money-bill-alt"></i> <strong>Total price:</strong> $ <%= @booking.total_price %></h6>
+  <p><i class="fa fa-map-marker" aria-hidden="true"></i> <strong> Location :</strong> <%= @booking.campervan.location %></p>
+  <p><i class="far fa-calendar-alt"></i> <strong>Start date :</strong> <%= @booking.start_date %></p>
+  <p><i class="far fa-calendar-alt"></i> <strong>End date :</strong> <%= @booking.end_date %></p>
+  <p><i class="fas fa-users"></i> <strong> Sleeps :</strong> <%= @booking.campervan.name %> people </p>
+  <p><i class="fas fa-bed"></i><strong> Bed type :</strong> <%= @booking.campervan.bed_type %></p>
+  <p><i class="fas fa-user-astronaut"></i><strong> Campervan owner : </strong> <%= @booking.campervan.user.name %></p>
+  <p><i class="fas fa-shuttle-van"></i> <strong> Campervan name : </strong><%= @booking.campervan.name %></p>
+</div>
 
   <% if Date.today > @booking.end_date %>
     <%= simple_form_for [@booking, @review] do |f| %>
@@ -22,10 +23,11 @@
       <%= f.submit "Add a Review", class: "btn btn-primary d-flex justify-content-center" %>
     <% end %>
   <% end %>
-<br>
-<div class="containerb"><%= link_to "Return to main page", campervans_path, class: 'btn btn-outline-secondary d-flex justify-content-center'  %>
-  <br>
-<%= link_to "Go to your bookings", bookings_path, class: 'btn btn-outline-secondary d-flex justify-content-center'  %>
+<div class="buttons-container">
+  <%= link_to "Return to main page", campervans_path, class: "btn btn-outline-secondary mr-3"  %>
+<%= link_to "Go to your bookings", bookings_path, class: "btn btn-outline-secondary ml-3"  %>
+</div>
+
 </div>
 
 <%= render 'partials/footer' %>
