@@ -29,22 +29,19 @@
         <div class="reviews">
           <h3>Reviews</h3>
           <% @campervan.reviews.each do |review| %>
-          <div class="review">
-
-
+            <div class="review">
               <p><strong><%= review.booking.user.name %><br>
               <% review.rating.to_i.times do %>
                 <span class="fa fa-star checked">
               <% end %>
               <% (5 - review.rating.to_i).times do %>
-                <span class="far fa-star">
+                <span class="far fa-star"><
               <% end %>
-            </strong><br><%= review.description %></p>
-          <% end %>
+              </strong><br><%= review.description %></p>
           </div>
+            <% end %>
         </div>
       </div>
-    </div>
     <div class="form-booking">
       <% unless current_user == @campervan.user %>
         <%= simple_form_for [@campervan, @booking] do |f| %>
@@ -56,15 +53,16 @@
         <% end %>
       <% end %>
     </div>
-  </div>
-
-
-
+    </div>
   <h3>Location</h3>
 <div id="map" style="width: 100%; height: 600px;
   "data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_KEY'] %>">
 </div>
+  </div>
+
+
+
 
 
 <%= render 'partials/footer' %>
