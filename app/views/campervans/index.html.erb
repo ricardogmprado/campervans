@@ -1,12 +1,25 @@
 <%= render 'partials/navbar' %>
-<%= render 'partials/banner' %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1510343513665-4527e381af08?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2894&q=80);">
+  <div class="container text-center">
+    <h1>VANIN</h1>
+    <p>brings unique <strong>campervans</strong> to unique people.</p>
+  <!--   <a class="btn btn-flat" href="">Book now</a> -->
+  <%= form_tag campervans_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control", id: "location",
+    placeholder: "Where do you want to find a campervan?"
+  %>
+<% end %>
+  </div>
+</div>
 <div class="main-container">
   <div class="container">
     <br>
     <br>
   <div class="cards">
     <% @campervans.each do |campervan| %>
-      <div class="card" style="width: 18rem;">
+      <div class="card">
         <img src="<%= cl_image_path campervan.photo %>" class="card-img-top" alt="Image Van">
         <h3><%= link_to campervan.name, campervan_path(campervan.id) %></h3>
         <ul style="list-style: none">
@@ -21,8 +34,7 @@
   </div>
   </div>
   <div
-    id="map"
-    style="width: 100%;"
+    id="map" class= "index-map"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV["MAPBOX_KEY"] %>">
   </div>

@@ -2,10 +2,14 @@
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
   // grid-gap: 13px;
-  flex-grow: 1;
+
+ 
   font-size: 15px;
   font-family: "Raleway";
   color: #363434;
+
+  width: 70%;
+
 }
 
 .main-container {
@@ -27,6 +31,7 @@
   // height: 150px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  max-height: 430px;
   // display: flex;
   // align-items: center;
   // justify-content: space-around;
@@ -36,9 +41,9 @@
   // text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
 
+
 .card h3 {
   text-align: center;
-  font-family: 'Arsenal', sans-serif;
   font-size: 30px;
 }
 
@@ -46,11 +51,43 @@
   // background-color: black;
   color: black;
   text-align: center;
-  font-family: 'Arsenal', sans-serif;
   font-size: 30px;
 }
 .card :hover a {
   color: gray;
   text-decoration: none;
+}
+
+
+.show-card{
+    max-height: none
+
+}
+
+
+#card-marker {
+  // border-style: solid;
+  // border-width: 1px;
+  img {
+    width: 100%;
+    border-radius: 5px;
+  }
+}
+
+
+.card-marker-content {
+  margin-top: 10px;
+  margin-left: 10px;
+    display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card-marker-price {
+  margin-top: 3px;
+  margin-right: 10px;
+ p {
+  font-size: 15px;
+ }
 }
 

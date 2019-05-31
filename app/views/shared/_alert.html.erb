@@ -1,0 +1,9 @@
+
+<div class="flash flash-warning alert alert-dismissible fade show" role="alert">
+  <span><strong>We're sorry</strong> <%= alert %></span>
+  <a data-dismiss="alert" aria-label="Close">
+    <i class="fas fa-times"></i>
+  </a>
+</div>
+
+<% flash[:alert] = nil %>
