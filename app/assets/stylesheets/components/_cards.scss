@@ -12,6 +12,15 @@
   display: flex;
 }
 
+.card-img {
+    height: 280px;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+}
+
 .card {
   // background-size: cover;
   background-position: center;
@@ -26,9 +35,6 @@
   // color: white;
   // font-weight: bolder;
   text-shadow: 0 0 10px rgba(0,0,0,0.1);
-  img {
-    border-radius: 5px;
-  }
 }
 
 .show-card{
