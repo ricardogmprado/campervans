@@ -1,5 +1,16 @@
 <div id = "card-marker">
-<img src="<%= cl_image_path campervan.photo %>" class = card-inner-img>
-<h1> <%= campervan.name  %></h1>
-<h1> $ <%= campervan.daily_price  %> per day</h1>
+    <%= link_to campervan_path(campervan) do %>
+  <img src="<%= cl_image_path campervan.photo %>" class = card-inner-img>
+  <% end %>
+    <div class = "card-marker-content">
+      <div class = "card-marker-basic">
+      <%= link_to campervan_path(campervan) do %>
+        <h5> <%= campervan.name  %></h5>
+        <% end %>
+        <h5> Sleeps: <%= campervan.sleeps  %></h5>
+        </div>
+        <div class = "card-marker-price">
+        <p> $ <%= campervan.daily_price  %>/day</p>
+        </div>
+    </div>
 </div>
