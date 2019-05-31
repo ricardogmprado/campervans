@@ -5,7 +5,8 @@
     <% @campervans.each do |campervan| %>
       <div class="card">
       <%= link_to campervan_path(campervan) do %>
-        <img src="<%= cl_image_path campervan.photo %>" class="card-img-top" alt="Image Van">
+        <div class="card-img" style="background-image: url('<%= cl_image_path campervan.photo %>')">
+        </div>
         <% end %>
         <div class="main-card-content">
           <div class = "main-card-title">

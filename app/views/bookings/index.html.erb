@@ -5,7 +5,8 @@
 <div class="cards w-75 mx-auto">
   <% @bookings.each do |booking| %>
   <div class="cards d-flex flex-column w-100" style="width: 18rem;">
-    <img src="<%= cl_image_path booking.campervan.photo %>" class="card-img-top" alt="Image Van">
+    <div class="card-img" style="background-image: url('<%= cl_image_path booking.campervan.photo %>')">
+    </div>
     <div class="card-body">
       <h5 class="card-title"><%= booking.campervan.name %></h5>
     </div>
