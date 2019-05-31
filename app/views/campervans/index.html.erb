@@ -1,31 +1,26 @@
 <%= render 'partials/navbar' %>
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1510343513665-4527e381af08?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2894&q=80);">
-  <div class="container text-center">
-    <h1>VANIN</h1>
-    <p>brings unique <strong>campervans</strong> to unique people.</p>
-  <!--   <a class="btn btn-flat" href="">Book now</a> -->
-  <%= form_tag campervans_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control", id: "location",
-    placeholder: "Where do you want to find a campervan?"
-  %>
-  <% end %>
-  </div>
-</div>
+<%= render 'partials/banner' %>
 <div class="main-container">
   <div class="cards">
     <% @campervans.each do |campervan| %>
       <div class="card">
+      <%= link_to campervan_path(campervan) do %>
         <img src="<%= cl_image_path campervan.photo %>" class="card-img-top" alt="Image Van">
-        <h3><%= link_to campervan.name, campervan_path(campervan.id) %></h3>
-        <ul style="list-style: none">
-          <li><i class="fa fa-map-marker" aria-hidden="true"></i> <%= campervan.location %></li>
-          <li>$<%= campervan.daily_price %>/day</li>
-          <li>sleeps: <%= campervan.sleeps %></li>
-          <li>belted seats: <%= campervan.belted_seats %></li>
-          <li>bed type: <%= campervan.bed_type %></li>
-        </ul>
+        <% end %>
+        <div class="main-card-content">
+          <div class = "main-card-title">
+              <h3><%= link_to campervan.name, campervan_path(campervan.id) %></h3>
+            <div class ="main-card-basic">
+              <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= campervan.location %></p>
+              <p><i class="fas fa-users"></i> Sleeps: <%= campervan.sleeps %></p>
+              <p><i class="fas fa-shuttle-van"></i> Belted seats: <%= campervan.belted_seats %></p>
+             <p><i class="fas fa-bed"></i> Bed type: <%= campervan.bed_type %></p>
+            </div>
+            </div>
+            <div class="main-card-price">
+            <p>$<%= campervan.daily_price %>/day</p>
+          </div>
+      </div>
       </div>
     <% end %>
   </div>
