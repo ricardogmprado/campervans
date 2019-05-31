@@ -1,8 +1,7 @@
-<body>
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <a class="navbar-brand" href="#">
+  <%= link_to campervans_path, class: "navbar-brand" do %>
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCmXjoP6K3ha8q7f5jTpvTi_oBX806t6ENh_5r8H_ouVZQdRO0" />
-</a>
+    <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -37,15 +36,20 @@
     <h1>VANIN</h1>
     <p>brings unique <strong>campervans</strong> to unique people.</p>
   <!--   <a class="btn btn-flat" href="">Book now</a> -->
-  <button type="button" class="btn btn-light" href="/campervans">Book now</button>
+  <%= form_tag campervans_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control", id: "location",
+    placeholder: "Where do you want to find a campervan?"
+  %>
+<% end %>
   </div>
 </div>
-
 <div class="main-container">
 
   <div class="cards">
     <% @campervans.each do |campervan| %>
-      <div class="card" style="width: 18rem;">
+      <div class="card">
         <img src="<%= cl_image_path campervan.photo %>" class="card-img-top" alt="Image Van">
         <h3><%= link_to campervan.name, campervan_path(campervan.id) %></h3>
         <ul style="list-style: none">
@@ -59,8 +63,7 @@
     <% end %>
   </div>
   <div
-    id="map"
-    style="width: 100%;"
+    id="map" class= "index-map"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV["MAPBOX_KEY"] %>">
   </div>
@@ -76,4 +79,3 @@
   <div class="footer-copyright">
   </div>
 </div>
-</body>
