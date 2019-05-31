@@ -1,7 +1,9 @@
+<body class = "listvanbackground">
 <%= render 'partials/navbar' %>
-<h1><%= @campervan.name %></h1>
-<p>Edit your Van</p>
-<%= simple_form_for @campervan do |f| %>
+<div class="listvancontainer">
+  <h1>List your Van</h1>
+  <br>
+  <%= simple_form_for @campervan do |f| %>
     <%= f.input :name %>
     <%= f.input :location %>
     <%= f.input :belted_seats %>
@@ -9,7 +11,11 @@
     <%= f.input :sleeps %>
     <%= f.input :daily_price %>
     <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
     <%= f.button :submit, class: 'btn btn-success' %>
     <%= link_to "Back to List", campervans_path, class: 'btn btn-light' %>
   <% end %>
+</div>
+
 <%= render 'partials/footer' %>
+</body>
