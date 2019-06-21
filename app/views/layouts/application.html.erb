@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <meta property='og:title' content='Vanin'/>
-      <meta property='og:image' content='<%= campervan.png %>'/>
-      <meta property='og:description' content='Rent a campervan for your trip'/>
+    <title><%= meta_title %></title>
+    <meta name="description" content="<%= meta_description %>">
+
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="<%= meta_title %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= meta_image %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:site_name" content="<%= meta_title %>" />
+
     <link href="https://fonts.googleapis.com/css?family=Arsenal&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Satisfy&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
