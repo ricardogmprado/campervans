@@ -1,4 +1,4 @@
 meta_product_name: "Vanin"
 meta_title: "Vanin - Easiest way to rent your campervan"
 meta_description: "There are more than 500.000 options of campervan for you to rent and travel around the world"
-meta_image: "campervan_image.png" # should exist in `app/assets/images/`
+meta_image: "cover.png" # should exist in `app/assets/images/`
